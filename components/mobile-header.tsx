@@ -21,16 +21,35 @@ export function MobileHeader() {
         </Link>
 
         <div className="flex items-center space-x-4">
-          <MessageSquare className="h-6 w-6 text-gray-600" />
-          <Bell className="h-6 w-6 text-gray-600" />
+         
           <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-10 w-10">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">{/* Menu content */}</SheetContent>
-          </Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <nav className="flex flex-col space-y-4 mt-8">
+                  <Link href="/buy" className="text-lg font-medium hover:text-primary">
+                    Buy
+                  </Link>
+                  <Link href="/sell" className="text-lg font-medium hover:text-primary">
+                    Sell
+                  </Link>
+                  <Link href="/finance" className="text-lg font-medium hover:text-primary">
+                    Finance
+                  </Link>
+                  <Link href="/research" className="text-lg font-medium hover:text-primary">
+                    Research
+                  </Link>
+                  <div className="flex flex-col space-y-2 pt-4">
+                    <Button variant="outline">Sign In</Button>
+                    <Button>Register</Button>
+                  </div>
+                </nav>
+              </SheetContent>
+            </Sheet>
         </div>
       </div>
 
@@ -46,19 +65,6 @@ export function MobileHeader() {
         </Button>
         <Button variant="outline" className="h-12 w-12 flex-shrink-0 bg-white">
           <Heart className="h-5 w-5 text-gray-600" />
-        </Button>
-      </div>
-
-      {/* Filter Pills */}
-      <div className="px-4 py-2 flex items-center space-x-2 overflow-x-auto scrollbar-hide">
-        <Button variant="outline" className="flex-shrink-0 h-10">
-          Filters
-        </Button>
-        <Button variant="outline" className="flex-shrink-0 h-10">
-          Year
-        </Button>
-        <Button variant="outline" className="flex-shrink-0 h-10">
-          Distance from me
         </Button>
       </div>
     </div>
