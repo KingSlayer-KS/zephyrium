@@ -1,5 +1,8 @@
 "use client"
 import { useState, useRef } from "react"
+import type React from "react"
+
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -12,24 +15,53 @@ import { Slider } from "@/components/ui/slider"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 export function SearchForm() {
+  const router = useRouter()
   const [priceRange, setPriceRange] = useState([0, 100000])
   const [activeTab, setActiveTab] = useState("buy")
+  const [postalCode, setPostalCode] = useState("")
+  const [bodyStyle, setBodyStyle] = useState("")
   const formRef = useRef<HTMLDivElement>(null)
 
   const handlePriceChange = (value: number[]) => {
     setPriceRange(value)
   }
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Build query parameters based on form values
+    const params = new URLSearchParams()
+
+    if (bodyStyle && bodyStyle !== "all") {
+      params.set("bodyStyle", bodyStyle)
+    }
+
+    if (priceRange[0] > 0) {
+      params.set("minPrice", priceRange[0].toString())
+    }
+
+    if (priceRange[1] < 200000) {
+      params.set("maxPrice", priceRange[1].toString())
+    }
+
+    if (postalCode) {
+      params.set("location", postalCode)
+    }
+
+    // Navigate to cars page with filters and scroll to top
+    router.push(`/cars?${params.toString()}`, { scroll: true })
+  }
+
   const bodyTypes = [
     { value: "all", label: "All Types" },
-    { value: "suv", label: "SUV" },
-    { value: "sedan", label: "Sedan" },
-    { value: "truck", label: "Truck" },
-    { value: "coupe", label: "Coupe" },
-    { value: "convertible", label: "Convertible" },
-    { value: "hatchback", label: "Hatchback" },
-    { value: "wagon", label: "Wagon" },
-    { value: "van", label: "Van/Minivan" },
+    { value: "SUV", label: "SUV" },
+    { value: "Sedan", label: "Sedan" },
+    { value: "Truck", label: "Truck" },
+    { value: "Coupe", label: "Coupe" },
+    { value: "Convertible", label: "Convertible" },
+    { value: "Hatchback", label: "Hatchback" },
+    { value: "Wagon", label: "Wagon" },
+    { value: "Van", label: "Van/Minivan" },
   ]
 
   return (
@@ -69,7 +101,7 @@ export function SearchForm() {
             {/* Content based on active tab */}
             <div className="p-6">
               {activeTab === "buy" ? (
-                <div className="space-y-8">
+                <form onSubmit={handleSearch} className="space-y-8">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                       <Label htmlFor="postal-code" className="text-base font-medium mb-2 block">
@@ -79,6 +111,8 @@ export function SearchForm() {
                         id="postal-code"
                         placeholder="Enter your postal code"
                         className="h-12 text-base rounded-lg"
+                        value={postalCode}
+                        onChange={(e) => setPostalCode(e.target.value)}
                       />
                     </div>
 
@@ -86,7 +120,7 @@ export function SearchForm() {
                       <Label htmlFor="body-type" className="text-base font-medium mb-2 block">
                         Body Type
                       </Label>
-                      <Select>
+                      <Select value={bodyStyle} onValueChange={setBodyStyle}>
                         <SelectTrigger id="body-type" className="h-12 text-base rounded-lg">
                           <SelectValue placeholder="Any Type" />
                         </SelectTrigger>
@@ -132,13 +166,14 @@ export function SearchForm() {
                     transition={{ duration: 0.2 }}
                   >
                     <Button
+                      type="submit"
                       className="w-full h-14 text-base bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white rounded-lg"
                       size="lg"
                     >
                       <Search className="mr-2 h-5 w-5" /> Find Cars
                     </Button>
                   </motion.div>
-                </div>
+                </form>
               ) : (
                 <div className="space-y-8">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

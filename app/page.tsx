@@ -20,8 +20,10 @@ export default function Home() {
         </section>
         <BestSellers />
         <BudgetCalculator />
-        <FeatureSection />
-        <CallToAction />
+        <div className="relative">
+          <FeatureSection />
+          <CallToAction />
+        </div>
       </main>
       <Footer />
     </div>

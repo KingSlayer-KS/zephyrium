@@ -1,10 +1,12 @@
 "use client"
 
 import { useRef } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 
 export function CallToAction() {
+  const router = useRouter()
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 })
 
@@ -17,12 +19,19 @@ export function CallToAction() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["20%", "0%"])
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
+  const handleBrowseCars = () => {
+    // Navigate to cars page with no filters to show all cars and scroll to top
+    router.push("/cars", { scroll: true })
+  }
+
+  // Update the handleSellCar function to include scroll: true
+  const handleSellCar = () => {
+    // Navigate to sell page and scroll to top
+    router.push("/sell", { scroll: true })
+  }
+
   return (
-    <motion.section
-      ref={sectionRef}
-      className="py-24 bg-primary text-primary-foreground overflow-hidden relative"
-      style={{ opacity }}
-    >
+    <motion.section ref={sectionRef} className="py-24 mt-[-8rem] overflow-hidden relative" style={{ opacity }}>
       <motion.div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
@@ -31,7 +40,9 @@ export function CallToAction() {
           y: backgroundY,
         }}
       />
-      <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm z-0" />
+
+      {/* Gradient overlay that starts with primary/20 to match the end of the feature section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/60 to-primary/90 backdrop-blur-sm z-0" />
 
       <motion.div className="container mx-auto px-4 relative z-10" style={{ y: contentY }}>
         <motion.div
@@ -44,7 +55,7 @@ export function CallToAction() {
           }}
         >
           <motion.h2
-            className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl"
+            className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{
@@ -56,7 +67,7 @@ export function CallToAction() {
             Ready to find your dream car?
           </motion.h2>
           <motion.p
-            className="mb-10 text-xl text-primary-foreground/90"
+            className="mb-10 text-xl text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{
@@ -90,6 +101,7 @@ export function CallToAction() {
                 size="lg"
                 variant="secondary"
                 className="h-14 px-8 text-base font-medium bg-white text-primary hover:bg-white/90"
+                onClick={handleBrowseCars}
               >
                 Browse Cars
               </Button>
@@ -107,6 +119,7 @@ export function CallToAction() {
                 size="lg"
                 variant="outline"
                 className="h-14 px-8 text-base font-medium bg-transparent text-white border-white hover:bg-white hover:text-primary"
+                onClick={handleSellCar}
               >
                 Sell Your Car
               </Button>
@@ -114,8 +127,6 @@ export function CallToAction() {
           </motion.div>
         </motion.div>
       </motion.div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primary to-transparent z-0" />
     </motion.section>
   )
 }

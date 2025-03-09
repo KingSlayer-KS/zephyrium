@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
@@ -71,6 +71,7 @@ const brands = [
 ]
 
 export function BrandCarousel() {
+  const router = useRouter()
   const carouselRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -130,6 +131,11 @@ export function BrandCarousel() {
     setHoveredBrand(null)
   }
 
+  const handleBrandClick = (brand: string) => {
+    // Navigate to cars page filtered by make and scroll to top
+    router.push(`/cars?make=${brand}`, { scroll: true })
+  }
+
   return (
     <div className="relative py-8">
       <motion.h2
@@ -158,8 +164,8 @@ export function BrandCarousel() {
             animate={controls}
             className="flex-shrink-0"
           >
-            <Link
-              href={`/brands/${brand.slug}`}
+            <button
+              onClick={() => handleBrandClick(brand.name)}
               className="flex flex-col items-center justify-center space-y-3"
               onMouseEnter={() => handleMouseEnter(brand.slug)}
               onMouseLeave={handleMouseLeave}
@@ -196,7 +202,7 @@ export function BrandCarousel() {
               >
                 {brand.name}
               </motion.span>
-            </Link>
+            </button>
           </motion.div>
         ))}
       </div>
