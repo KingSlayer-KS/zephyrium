@@ -25,56 +25,56 @@ const brands = [
   },
   {
     name: "Porsche",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Porsche_logo.svg/800px-Porsche_logo.svg.png",
+    logo: "https://www.carlogos.org/car-logos/porsche-logo-2014-download.png",
     slug: "porsche",
   },
   {
     name: "Lexus",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Lexus_logo.svg/800px-Lexus_logo.svg.png",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/42/Lexus-cars-logo-emblem.jpg",
     slug: "lexus",
   },
   {
     name: "Ferrari",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ferrari-Logo.svg/800px-Ferrari-Logo.svg.png",
+    logo: "https://www.carlogos.org/car-logos/ferrari-logo-2002-download.png",
     slug: "ferrari",
   },
-  {
-    name: "Lamborghini",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Lamborghini_Logo.svg/800px-Lamborghini_Logo.svg.png",
-    slug: "lamborghini",
-  },
+  // {
+  //   name: "Lamborghini",
+  //   logo: "https://www.carlogos.org/car-logos/lamborghini-logo-2014-download.png",
+  //   slug: "lamborghini",
+  // },
   {
     name: "Bentley",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Bentley_logo.svg/800px-Bentley_logo.svg.png",
+    logo: "hhttps://www.carlogos.org/car-logos/bentley-logo-2002-download.png",
     slug: "bentley",
   },
-  {
-    name: "Rolls-Royce",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rolls-Royce_Motor_Cars_logo.svg/800px-Rolls-Royce_Motor_Cars_logo.svg.png",
-    slug: "rolls-royce",
-  },
-  {
-    name: "Maserati",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Maserati_logo.svg/800px-Maserati_logo.svg.png",
-    slug: "maserati",
-  },
-  {
-    name: "Jaguar",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Jaguar_2012_logo.svg/800px-Jaguar_2012_logo.svg.png",
-    slug: "jaguar",
-  },
-  {
-    name: "Land Rover",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Land_Rover_logo2.svg/800px-Land_Rover_logo2.svg.png",
-    slug: "land-rover",
-  },
+  // {
+  //   name: "Rolls-Royce",
+  //   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Rolls-Royce_Motor_Cars_logo.svg/800px-Rolls-Royce_Motor_Cars_logo.svg.png",
+  //   slug: "rolls-royce",
+  // },
+  // {
+  //   name: "Maserati",
+  //   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Maserati_logo.svg/800px-Maserati_logo.svg.png",
+  //   slug: "maserati",
+  // },
+  // {
+  //   name: "Jaguar",
+  //   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Jaguar_2012_logo.svg/800px-Jaguar_2012_logo.svg.png",
+  //   slug: "jaguar",
+  // },
+  // {
+  //   name: "Land Rover",
+  //   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Land_Rover_logo2.svg/800px-Land_Rover_logo2.svg.png",
+  //   slug: "land-rover",
+  // },
 ]
 
 export function BrandCarousel() {
   const router = useRouter()
   const carouselRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [canScrollRight, setCanScrollRight] = useState(true)    
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null)
   const controls = useAnimation()
 

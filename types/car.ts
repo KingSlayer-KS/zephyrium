@@ -8,8 +8,9 @@ export type Car = {
   type: string
   transmission: string
   fuelType: string
-  exteriorColor: string
-  interiorColor: string
+  color: string
+  exteriorColor?: string
+  interiorColor?: string
   features: string[]
   images: string[]
   location: string
@@ -25,26 +26,26 @@ export type Car = {
   engineSize: string
   horsepower: number
   drivetrain: string
-  numberOfSeats: number
-  numberOfDoors: number
-  fuelEconomy: {
+  numberOfSeats?: number
+  numberOfDoors?: number
+  fuelEconomy?: {
     city: number
     highway: number
     combined: number
   }
-  safetyRating: number
-  dealRating: "Great Deal" | "Good Deal" | "Fair Deal"
-  daysOnMarket: number
-  priceDrops: {
+  safetyRating?: number
+  dealRating?: string
+  daysOnMarket?: number
+  priceDrops?: {
     amount: number
     date: string
   }[]
-  vehicleHistory: {
+  vehicleHistory?: {
     owners: number
     accidents: number
     serviceRecords: number
   }
-  sellerType: "Dealer" | "Private" | "Certified"
+  sellerType?: string
   monthlyPayment?: number
   financing?: {
     apr: number

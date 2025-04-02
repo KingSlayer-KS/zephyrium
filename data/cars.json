@@ -11,16 +11,40 @@
       "transmission": "Automatic",
       "fuelType": "Hybrid",
       "color": "Silver",
-      "features": ["Bluetooth", "Backup Camera", "Lane Departure Warning"],
-      "images": ["/placeholder.svg?height=300&width=400"],
+      "exteriorColor": "Silver",
+      "interiorColor": "Black",
+      "features": ["Bluetooth", "Backup Camera", "Lane Departure Warning", "Apple CarPlay", "Android Auto"],
+      "images": ["/placeholder.svg?height=600&width=800"],
       "location": "Toronto, ON",
-      "dealer": "Toyota Downtown",
+      "dealer": {
+        "name": "Toyota Downtown",
+        "rating": 4.8,
+        "location": "Toronto, ON",
+        "phone": "(416) 555-1234"
+      },
       "rating": 4.8,
       "isNew": true,
       "bodyStyle": "SUV",
       "engineSize": "2.5L",
       "horsepower": 219,
-      "drivetrain": "AWD"
+      "drivetrain": "AWD",
+      "numberOfSeats": 5,
+      "numberOfDoors": 4,
+      "fuelEconomy": {
+        "city": 41,
+        "highway": 38,
+        "combined": 40
+      },
+      "safetyRating": 5,
+      "dealRating": "Great Deal",
+      "daysOnMarket": 7,
+      "vehicleHistory": {
+        "owners": 0,
+        "accidents": 0,
+        "serviceRecords": 0
+      },
+      "sellerType": "Dealer",
+      "monthlyPayment": 499
     },
     {
       "id": "2",
@@ -33,16 +57,40 @@
       "transmission": "Automatic",
       "fuelType": "Gasoline",
       "color": "Blue",
-      "features": ["Apple CarPlay", "Sunroof", "Adaptive Cruise Control"],
-      "images": ["/placeholder.svg?height=300&width=400"],
+      "exteriorColor": "Blue",
+      "interiorColor": "Gray",
+      "features": ["Apple CarPlay", "Sunroof", "Adaptive Cruise Control", "Heated Seats", "Wireless Charging"],
+      "images": ["/placeholder.svg?height=600&width=800"],
       "location": "Vancouver, BC",
-      "dealer": "Honda West",
+      "dealer": {
+        "name": "Honda West",
+        "rating": 4.6,
+        "location": "Vancouver, BC",
+        "phone": "(604) 555-5678"
+      },
       "rating": 4.6,
       "isNew": false,
       "bodyStyle": "Sedan",
       "engineSize": "2.0L",
       "horsepower": 158,
-      "drivetrain": "FWD"
+      "drivetrain": "FWD",
+      "numberOfSeats": 5,
+      "numberOfDoors": 4,
+      "fuelEconomy": {
+        "city": 31,
+        "highway": 40,
+        "combined": 35
+      },
+      "safetyRating": 5,
+      "dealRating": "Good Deal",
+      "daysOnMarket": 14,
+      "vehicleHistory": {
+        "owners": 1,
+        "accidents": 0,
+        "serviceRecords": 3
+      },
+      "sellerType": "Dealer",
+      "monthlyPayment": 399
     },
     {
       "id": "3",
@@ -55,16 +103,40 @@
       "transmission": "Automatic",
       "fuelType": "Gasoline",
       "color": "Red",
-      "features": ["4x4", "Towing Package", "Blind Spot Monitoring"],
-      "images": ["/placeholder.svg?height=300&width=400"],
+      "exteriorColor": "Red",
+      "interiorColor": "Black",
+      "features": ["4x4", "Towing Package", "Blind Spot Monitoring", "Leather Seats", "Navigation System"],
+      "images": ["/placeholder.svg?height=600&width=800"],
       "location": "Calgary, AB",
-      "dealer": "Ford Country",
+      "dealer": {
+        "name": "Ford Country",
+        "rating": 4.7,
+        "location": "Calgary, AB",
+        "phone": "(403) 555-9012"
+      },
       "rating": 4.7,
       "isNew": true,
       "bodyStyle": "Pickup",
       "engineSize": "3.5L",
       "horsepower": 400,
-      "drivetrain": "4WD"
+      "drivetrain": "4WD",
+      "numberOfSeats": 6,
+      "numberOfDoors": 4,
+      "fuelEconomy": {
+        "city": 18,
+        "highway": 24,
+        "combined": 20
+      },
+      "safetyRating": 4,
+      "dealRating": "Fair Deal",
+      "daysOnMarket": 30,
+      "vehicleHistory": {
+        "owners": 0,
+        "accidents": 0,
+        "serviceRecords": 0
+      },
+      "sellerType": "Dealer",
+      "monthlyPayment": 699
     },
     {
       "id": "4",
@@ -77,16 +149,40 @@
       "transmission": "Automatic",
       "fuelType": "Electric",
       "color": "White",
-      "features": ["Autopilot", "Wireless Charging", "Heated Seats"],
-      "images": ["/placeholder.svg?height=300&width=400"],
+      "exteriorColor": "White",
+      "interiorColor": "Black",
+      "features": ["Autopilot", "Wireless Charging", "Heated Seats", "Glass Roof", "Premium Sound System"],
+      "images": ["/placeholder.svg?height=600&width=800"],
       "location": "Montreal, QC",
-      "dealer": "Tesla Montreal",
+      "dealer": {
+        "name": "Tesla Montreal",
+        "rating": 4.9,
+        "location": "Montreal, QC",
+        "phone": "(514) 555-3456"
+      },
       "rating": 4.9,
       "isNew": true,
       "bodyStyle": "Sedan",
       "engineSize": "Electric",
       "horsepower": 283,
-      "drivetrain": "RWD"
+      "drivetrain": "RWD",
+      "numberOfSeats": 5,
+      "numberOfDoors": 4,
+      "fuelEconomy": {
+        "city": 138,
+        "highway": 126,
+        "combined": 132
+      },
+      "safetyRating": 5,
+      "dealRating": "Great Deal",
+      "daysOnMarket": 5,
+      "vehicleHistory": {
+        "owners": 0,
+        "accidents": 0,
+        "serviceRecords": 0
+      },
+      "sellerType": "Dealer",
+      "monthlyPayment": 599
     },
     {
       "id": "5",
@@ -99,16 +195,46 @@
       "transmission": "Automatic",
       "fuelType": "Gasoline",
       "color": "Black",
-      "features": ["Panoramic Sunroof", "Leather Seats", "Harman Kardon Sound System"],
-      "images": ["/placeholder.svg?height=300&width=400"],
+      "exteriorColor": "Black",
+      "interiorColor": "Tan",
+      "features": [
+        "Panoramic Sunroof",
+        "Leather Seats",
+        "Harman Kardon Sound System",
+        "Heated Steering Wheel",
+        "360-degree Camera"
+      ],
+      "images": ["/placeholder.svg?height=600&width=800"],
       "location": "Ottawa, ON",
-      "dealer": "BMW Ottawa",
+      "dealer": {
+        "name": "BMW Ottawa",
+        "rating": 4.8,
+        "location": "Ottawa, ON",
+        "phone": "(613) 555-7890"
+      },
       "rating": 4.8,
       "isNew": false,
       "bodyStyle": "SUV",
       "engineSize": "3.0L",
       "horsepower": 335,
-      "drivetrain": "AWD"
+      "drivetrain": "AWD",
+      "numberOfSeats": 5,
+      "numberOfDoors": 4,
+      "fuelEconomy": {
+        "city": 21,
+        "highway": 26,
+        "combined": 23
+      },
+      "safetyRating": 5,
+      "dealRating": "Good Deal",
+      "daysOnMarket": 21,
+      "vehicleHistory": {
+        "owners": 1,
+        "accidents": 0,
+        "serviceRecords": 5
+      },
+      "sellerType": "Certified",
+      "monthlyPayment": 899
     }
   ],
   "makes": [
